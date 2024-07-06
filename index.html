@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IA Roleta</title>
+<title>Automatizador 2.0</title>
 <link rel="icon" href="https://scontent.ftow3-1.fna.fbcdn.net/v/t39.30808-6/435262700_7227555497371314_3067309467847185009_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeH-DHNkLJ3ulsDriNXNHbpCpOMfL_0ZY1Gk4x8v_RljUUZYoCCC-HHe37uggqkNmkgC8aJD-r4u-SWVukXJXZua&_nc_ohc=JACNYD9yQsgAb4loFpT&_nc_ht=scontent.ftow3-1.fna&oh=00_AfBkXEfAmSuoczv0ubQnCX2KfIJQwGZmgtXJxPLO657Iag&oe=6621D405" type="image/x-icon">
 <style>
     body {
@@ -42,7 +42,7 @@
 <body>
     
 <div class="container">
-    <h1>IA Roleta</h1>
+    <h1>Automatizador 2.0</h1>
     <button onclick="obterEntrada()" class="btn" id="btn-gerar">Obter Entrada</button>
     <div id="output"></div>
 </div>
@@ -60,11 +60,21 @@
         var resultado = document.createElement("div");
         resultado.classList.add("resultado");
 
-        // Gera um número aleatório entre 1 e 36
-        var numeroAleatorio = Math.floor(Math.random() * 36) + 1;
+        // Gera um número aleatório entre 1 e 10
+        var numeroAleatorio = Math.floor(Math.random() * 10) + 1;
 
-        // Define a mensagem baseada no número aleatório e seus vizinhos
-        var mensagem = `Entrada no terminal ${numeroAleatorio}, vizinhos: ${numeroAleatorio - 1} e ${numeroAleatorio + 1}`;
+        // Define a mensagem baseada no número aleatório
+        var mensagem = "";
+
+        // Definindo as condições para a mensagem de entrada
+        if (numeroAleatorio <= 6) {
+            mensagem = "Entrada no terminal 2 e terminal 1";
+        } else if (numeroAleatorio <= 8) {
+            mensagem = "Entrada no terminal 4 e terminal 2";
+        } else {
+            mensagem = "Nenhuma entrada encontrada";
+        }
+
         resultado.innerText = mensagem;
 
         output.appendChild(resultado);
