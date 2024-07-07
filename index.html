@@ -49,13 +49,14 @@
     
 <div class="container">
     <h1>Automatizador 2.0</h1>
-    <select id="select-roletas" onchange="updateLink()">
-        <option value="https://example.com/link1">Immersive Roulette</option>
-        <option value="https://example.com/link2">Xxxtreme Roulette</option>
-        <option value="https://example.com/link3">Roulette</option>
-        <option value="https://example.com/link4">Lighting Roulette</option>
-        <option value="https://example.com/link5">VIP Roulette</option>
-        <option value="https://example.com/link6">Roulette</option>
+    <select id="select-roletas">
+        <option value="xxxtreme rolete">xxxtreme roluette</option>
+        <option value="Gold roluette">Gold roluette</option>
+        <option value="American roluette">American roluette</option>
+        <option value="Immersive Roulette">Immersive Roulette</option>
+        <option value="Xxxtreme Roulette">Xxxtreme Roulette</option>
+        <option value="Lighting Roulette">Lighting Roulette</option>
+        <option value="VIP Roulette">VIP Roulette</option>
     </select>
     <button onclick="obterEntrada()" class="btn" id="btn-gerar">Obter Entrada</button>
     <div id="output"></div>
@@ -96,10 +97,8 @@
         // Mostrar o popup com nome da roleta após 1 a 2 minutos
         setTimeout(function() {
             var select = document.getElementById("select-roletas");
-            var nomeRoleta = select.options[select.selectedIndex].text;
-            var linkRoleta = select.options[select.selectedIndex].value;
+            var nomeRoleta = select.options[select.selectedIndex].value;
             alert("Possível entrada com " + nomeRoleta);
-            window.location.href = linkRoleta; // Redireciona para o link da roleta selecionada
         }, Math.floor(Math.random() * (120000 - 60000 + 1)) + 60000); // Intervalo entre 1 e 2 minutos (em milissegundos)
 
         // Após 10 segundos, limpa o resultado e o texto do botão
@@ -107,16 +106,6 @@
             output.innerHTML = "";
             btn.innerText = "Obter Entrada";
         }, 10000);
-    }
-
-    function updateLink() {
-        var select = document.getElementById("select-roletas");
-        var linkRoleta = select.options[select.selectedIndex].value;
-        var btn = document.getElementById("btn-gerar");
-        btn.innerText = "Obter Entrada para " + select.options[select.selectedIndex].text;
-        btn.onclick = function() {
-            window.location.href = linkRoleta; // Redireciona para o link da roleta selecionada ao clicar no botão
-        };
     }
 </script>
 
