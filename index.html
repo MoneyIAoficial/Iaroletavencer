@@ -37,19 +37,28 @@
     h1 {
         font-size: 36px;
     }
+    select {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
 </style>
 </head>
 <body>
     
 <div class="container">
     <h1>Automatizador 2.0</h1>
+    <select id="select-roletas">
+        <option value="xxxtreme rolete">xxxtreme roluette</option>
+        <option value="Gold roluette">Gold roluette</option>
+        <option value="American roluette">American roluette</option>
+    </select>
     <button onclick="obterEntrada()" class="btn" id="btn-gerar">Obter Entrada</button>
     <div id="output"></div>
 </div>
 
 <script>
-    var nomesRoletas = ["xxxtreme rolete", "Gold roluette", "American roluette"];
-
     function obterEntrada() {
         var btn = document.getElementById("btn-gerar");
         btn.innerText = "Obtendo entrada...";
@@ -83,7 +92,8 @@
 
         // Mostrar o popup com nome da roleta após 1 a 2 minutos
         setTimeout(function() {
-            var nomeRoleta = nomesRoletas[Math.floor(Math.random() * nomesRoletas.length)];
+            var select = document.getElementById("select-roletas");
+            var nomeRoleta = select.options[select.selectedIndex].value;
             alert("Possível entrada com " + nomeRoleta);
         }, Math.floor(Math.random() * (120000 - 60000 + 1)) + 60000); // Intervalo entre 1 e 2 minutos (em milissegundos)
 
